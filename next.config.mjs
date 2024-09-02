@@ -1,4 +1,5 @@
 // @ts-check
+import { resolve } from 'path';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 
 const bundleAnalyzer = withBundleAnalyzer({
@@ -18,6 +19,11 @@ const nextConfig = {
 	reactStrictMode: true,
 	swcMinify: true,
 	webpack: (config) => {
+		config.resolve.alias = {
+			...config.resolve.alias,
+			'@/variables': resolve('./src/__variables.module.scss')
+		};
+
 		return config;
 	}
 };

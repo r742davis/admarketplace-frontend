@@ -22,9 +22,8 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"],
+      "@/variables": ["./src/__variables.module.scss"]
     }
   },
   "include": [
