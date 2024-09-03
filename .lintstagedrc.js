@@ -1,9 +1,9 @@
-const path = require('path');
+import { relative } from 'path';
 
 const buildEslintCommand = (filenames) => {
-	return `next lint --fix --file ${filenames.map((f) => path.relative(process.cwd(), f)).join(' --file ')}`;
+	return `next lint --fix --file ${filenames.map((f) => relative(process.cwd(), f)).join(' --file ')}`;
 };
 
-module.exports = {
+export default {
 	'*.{js,jsx,ts,tsx}': [buildEslintCommand]
 };
