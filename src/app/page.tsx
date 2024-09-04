@@ -1,4 +1,5 @@
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
+import { Select } from "@/components";
 import { getQueryClient } from "@/utils";
 import styles from "./page.module.scss";
 
@@ -8,7 +9,11 @@ export default function Home() {
 	return (
 		<HydrationBoundary state={dehydrate(queryClient)}>
 			<main className={styles.main}>
-				<div>Postr App!</div>
+				<div>
+					<h1>Select a Post</h1>
+					{/* Placeholder Component */}
+					<Select />
+				</div>
 			</main>
 		</HydrationBoundary>
 	);

@@ -21,6 +21,7 @@ const nextConfig = {
 	webpack: config => {
 		config.resolve.alias = {
 			...config.resolve.alias,
+			"@/components": resolve("./src/app/components"),
 			"@/providers": resolve("./providers"),
 			"@/utils": resolve("./utils"),
 			"@/variables": resolve("./src/__variables.module.scss"),
