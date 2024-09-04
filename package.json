@@ -1,36 +1,43 @@
 {
-  "name": "admarketplace-frontend",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "analyze": "ANALYZE=true yarn build",
-    "build": "next build",
-    "dev": "next dev",
-    "go": "open http://localhost:3000 & next dev",
-    "lint": "next lint",
-    "pre-commit": "next lint --fix --quiet",
-    "prepare": "husky",
-    "start": "next start"
-  },
-  "dependencies": {
-    "@tanstack/react-query": "^5.53.3",
-    "next": "14.2.7",
-    "react": "^18",
-    "react-dom": "^18"
-  },
-  "devDependencies": {
-    "@next/bundle-analyzer": "^14.2.7",
-    "@tanstack/eslint-plugin-query": "^5.53.0",
-    "@tanstack/react-query-devtools": "^5.54.0",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.7",
-    "husky": "^9.1.5",
-    "lint-staged": "^15.2.10",
-    "path": "^0.12.7",
-    "sass": "^1.77.8",
-    "typescript": "^5"
-  }
+	"name": "admarketplace-frontend",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"analyze": "ANALYZE=true yarn build",
+		"build": "next build",
+		"dev": "next dev",
+		"go": "open http://localhost:3000 & next dev",
+		"lint": "next lint",
+		"prepare": "husky",
+		"start": "next start"
+	},
+	"dependencies": {
+		"@tanstack/react-query": "^5.53.3",
+		"next": "14.2.7",
+		"react": "^18",
+		"react-dom": "^18"
+	},
+	"devDependencies": {
+		"@next/bundle-analyzer": "^14.2.7",
+		"@tanstack/eslint-plugin-query": "^5.53.0",
+		"@tanstack/react-query-devtools": "^5.54.0",
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"@typescript-eslint/eslint-plugin": "^8.4.0",
+		"eslint": "^8",
+		"eslint-config-next": "14.2.7",
+		"husky": "^9.1.5",
+		"lint-staged": "^15.2.10",
+		"path": "^0.12.7",
+		"prettier": "^3.3.3",
+		"sass": "^1.77.8",
+		"typescript": "^5"
+	},
+	"lint-staged": {
+		"(*.css|*.scss|*.js|*.jsx|*.ts|*.tsx)": [
+			"eslint --fix",
+			"prettier --write"
+		]
+	}
 }
