@@ -1,0 +1,16 @@
+.main {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: 6rem;
+	min-height: var(--viewport-height);
+}
+
+.not-found {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: column nowrap;
+	min-height: var(--viewport-height);
+}

@@ -1,6 +1,6 @@
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
 import { getQueryClient } from "@/utils";
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 
 export default function Home() {
 	const queryClient = getQueryClient();
