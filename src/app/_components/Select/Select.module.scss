@@ -1,0 +1,11 @@
+.container {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	gap: 0.8rem;
+
+	select {
+		max-width: 80%;
+	}
+}
