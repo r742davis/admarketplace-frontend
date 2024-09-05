@@ -18,11 +18,11 @@ export default function Home() {
 
 	// TODO
 	// Query Options: Caching, Focus Refetching, Retries, {enabled}, Parallel Fetching
-	const { data } = useQuery({
+	const { data: posts } = useQuery({
 		queryKey: QUERY_KEYS.POSTS.LIST,
 		queryFn: getPosts,
-		select: data => {
-			return data?.data.map(({ id, title }) => ({ id, value: `Post #${id}: ${title}` })) ?? null;
+		select: res => {
+			return res?.map(({ id, title }) => ({ id, value: `Post #${id}: ${title}` })) ?? null;
 		},
 	});
 
@@ -30,7 +30,7 @@ export default function Home() {
 		<HydrationBoundary state={dehydrate(queryClient)}>
 			<Select
 				overrideValue
-				options={data ?? []}
+				options={posts ?? []}
 				value={selectedValue}
 				onChange={handleChange}
 				label={"Please Select a Post"}

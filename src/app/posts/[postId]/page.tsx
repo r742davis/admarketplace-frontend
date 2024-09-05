@@ -1,8 +1,8 @@
-// import { Comment, CommentComposer } from "@/components";
 import Link from "next/link";
+import { CommentComposer, Post } from "@/components";
 import { getPost } from "@/lib";
 
-export default async function Post({ params }: { params: { postId: number } }) {
+export default async function PostId({ params }: { params: { postId: number } }) {
 	const post = await getPost(params.postId);
 
 	if (!post) {
@@ -16,10 +16,8 @@ export default async function Post({ params }: { params: { postId: number } }) {
 
 	return (
 		<div>
-			<h1>Post ID Page: {params.postId}</h1>
-			<p>{post.id}</p>
-			<p>{post.title}</p>
-			<p>{post.body}</p>
+			<Post postId={post.userId} title={post.title} body={post.body} />
+			<CommentComposer />
 		</div>
 	);
 }
