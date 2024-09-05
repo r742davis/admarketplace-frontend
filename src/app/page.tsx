@@ -1,16 +1,9 @@
 "use client";
 
 import { ChangeEvent, useState } from "react";
-import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
+import { HydrationBoundary, dehydrate, useQuery } from "@tanstack/react-query";
 import { Select } from "@/components";
-import { getQueryClient } from "@/lib";
-
-type Post = {
-	id: number;
-	title: string;
-	body: string;
-	comments?: [];
-};
+import { getPosts, getQueryClient, QUERY_KEYS } from "@/lib";
 
 export default function Home() {
 	const [selectedValue, setSelectedValue] = useState("");
@@ -20,23 +13,19 @@ export default function Home() {
 		setSelectedValue(event.target.value);
 	};
 
-	const posts: Array<Post> = [
-		{ id: 1, title: "BLARGHHHHHH", body: "<Body Placeholder>" },
-		{ id: 2, title: "Post Title 2", body: "<Body Placeholder>" },
-		{ id: 3, title: "Post Title 3", body: "<Body Placeholder>" },
-		{ id: 4, title: "Post Title 4", body: "<Body Placeholder>" },
-	];
-
-	const mappedOptions = posts.map(p => ({ id: p.id, value: p.title }));
+	// TODO
+	// Query Options: Caching, Focus Refetching, Retries, {enabled}, Parallel Fetching
+	const { data } = useQuery({
+		queryKey: QUERY_KEYS.POSTS.LIST,
+		queryFn: getPosts,
+		select: data => {
+			return data?.data.map(({ id, title }) => ({ id, value: `Post #${id}: ${title}` })) ?? null;
+		},
+	});
 
 	return (
 		<HydrationBoundary state={dehydrate(queryClient)}>
-			<Select
-				options={mappedOptions}
-				value={selectedValue}
-				onChange={handleChange}
-				label={"Please Select a Post"}
-			/>
+			<Select options={data ?? []} value={selectedValue} onChange={handleChange} label={"Please Select a Post"} />
 		</HydrationBoundary>
 	);
 }
