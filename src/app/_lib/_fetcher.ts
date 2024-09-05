@@ -17,6 +17,7 @@ export async function fetcher<TResponse, TBody>(
 ): Promise<FetchResponse<TResponse>> {
 	if (!url) throw new Error("Please pass a URL when using the custom fetcher");
 
+	const controller = new AbortController();
 	let queryString = "";
 
 	const fetchOptions: RequestInit = {
@@ -25,6 +26,7 @@ export async function fetcher<TResponse, TBody>(
 			"Content-Type": "application/json",
 			...headers,
 		},
+		signal: controller.signal,
 	};
 
 	if (!!params) {
@@ -35,6 +37,7 @@ export async function fetcher<TResponse, TBody>(
 	if (body && method !== "GET") fetchOptions.body = JSON.stringify(body);
 
 	const response = await fetch(url + queryString, fetchOptions);
+
 	if (!response.ok) {
 		const errorData = await response.json().catch(() => null);
 		throw new Error(
