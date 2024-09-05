@@ -11,7 +11,7 @@ type FetchResponse<T> = {
 	statusText: string;
 };
 
-export default async function fetcher<TResponse, TBody>(
+export async function fetcher<TResponse, TBody>(
 	url: string,
 	{ method = "GET", headers = {}, body, params }: FetchOptions<TBody> = {}
 ): Promise<FetchResponse<TResponse>> {

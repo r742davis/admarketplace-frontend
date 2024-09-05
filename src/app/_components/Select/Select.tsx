@@ -14,9 +14,10 @@ type SelectProps = {
 	value: string;
 	onChange: (event: ChangeEvent<HTMLSelectElement>, args: Array<unknown>) => void;
 	label?: string;
+	overrideValue?: boolean;
 };
 
-export default function Select({ options = [], value = "", onChange, label }: SelectProps) {
+export default function Select({ options = [], overrideValue = true, value = "", onChange, label }: SelectProps) {
 	const handleChange = (event: ChangeEvent<HTMLSelectElement>, ...args: Array<unknown>) => {
 		onChange(event, args);
 	};
@@ -29,7 +30,7 @@ export default function Select({ options = [], value = "", onChange, label }: Se
 					Please Select a Post
 				</option>
 				{options.map(option => (
-					<option key={option.value} value={option.value}>
+					<option key={option.value} value={overrideValue ? option.id : option.value}>
 						{option?.label ?? option.value}
 					</option>
 				))}

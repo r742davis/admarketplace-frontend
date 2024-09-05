@@ -1,16 +1,19 @@
 "use client";
 
 import { ChangeEvent, useState } from "react";
+import { useRouter } from "next/navigation";
 import { HydrationBoundary, dehydrate, useQuery } from "@tanstack/react-query";
 import { Select } from "@/components";
 import { getPosts, getQueryClient, QUERY_KEYS } from "@/lib";
 
 export default function Home() {
 	const [selectedValue, setSelectedValue] = useState("");
+	const { push } = useRouter();
 	const queryClient = getQueryClient();
 
 	const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
 		setSelectedValue(event.target.value);
+		push(`/posts/${event.target.value}`);
 	};
 
 	// TODO
@@ -25,7 +28,13 @@ export default function Home() {
 
 	return (
 		<HydrationBoundary state={dehydrate(queryClient)}>
-			<Select options={data ?? []} value={selectedValue} onChange={handleChange} label={"Please Select a Post"} />
+			<Select
+				overrideValue
+				options={data ?? []}
+				value={selectedValue}
+				onChange={handleChange}
+				label={"Please Select a Post"}
+			/>
 		</HydrationBoundary>
 	);
 }
