@@ -1,4 +1,4 @@
-import { Comment, CommentComposer } from "./components";
+import { Comment, CommentComposer } from "@/components";
 
 export default function Posts() {
 	return (
