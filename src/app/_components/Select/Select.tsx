@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent } from "react";
+import { ChangeEvent, useCallback } from "react";
 import styles from "./Select.module.scss";
 
 type Option = {
@@ -18,9 +18,12 @@ type SelectProps = {
 };
 
 export default function Select({ options = [], overrideValue = true, value = "", onChange, label }: SelectProps) {
-	const handleChange = (event: ChangeEvent<HTMLSelectElement>, ...args: Array<unknown>) => {
-		onChange(event, args);
-	};
+	const handleChange = useCallback(
+		(event: ChangeEvent<HTMLSelectElement>, ...args: Array<unknown>) => {
+			onChange(event, args);
+		},
+		[onChange]
+	);
 
 	return (
 		<div className={styles["container"]}>

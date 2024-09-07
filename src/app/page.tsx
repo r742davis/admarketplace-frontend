@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import { HydrationBoundary, dehydrate, useQuery } from "@tanstack/react-query";
 import { Select } from "@/components";
@@ -11,13 +11,14 @@ export default function Home() {
 	const { push } = useRouter();
 	const queryClient = getQueryClient();
 
-	const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
-		setSelectedValue(event.target.value);
-		push(`/posts/${event.target.value}`);
-	};
+	const handleChange = useCallback(
+		(event: ChangeEvent<HTMLSelectElement>) => {
+			setSelectedValue(event.target.value);
+			push(`/posts/${event.target.value}`);
+		},
+		[push]
+	);
 
-	// TODO
-	// Query Options: Caching, Focus Refetching, Retries, {enabled}, Parallel Fetching
 	const { data: posts } = useQuery({
 		queryKey: QUERY_KEYS.POSTS.LIST,
 		queryFn: getPosts,
