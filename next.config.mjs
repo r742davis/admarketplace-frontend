@@ -22,6 +22,7 @@ const nextConfig = {
 		config.resolve.alias = {
 			...config.resolve.alias,
 			"@/components": resolve("./src/app/_components"),
+			"@/hooks": resolve("./src/app/_hooks"),
 			"@/lib": resolve("./src/app/_lib"),
 			"@/providers": resolve("./src/app/_providers"),
 			"@/styles": resolve("./src/app/_styles"),

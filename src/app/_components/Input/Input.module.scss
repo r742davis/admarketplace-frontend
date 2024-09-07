@@ -1,4 +1,16 @@
-.input-container {
+.container {
 	display: flex;
 	flex-flow: column nowrap;
+}
+
+.input {
+	border: 1px solid #ccc;
+}
+
+.error {
+	border-color: var(--error);
+
+	&-message {
+		color: var(--error);
+	}
 }

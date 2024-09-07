@@ -1,6 +1,7 @@
 export * from "./_constants";
 export * from "./_fetcher";
 export * from "./_queryKeys";
+export * from "./_validators";
 export * from "./get-comments";
 export * from "./get-post";
 export * from "./get-posts";

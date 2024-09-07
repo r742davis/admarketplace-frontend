@@ -4,10 +4,16 @@ import styles from "./Textarea.module.scss";
 
 export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 	className?: string;
+	error?: string | null;
 }
 
-const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ className, ...props }, ref) => {
-	return <textarea className={cn(styles["textarea"], { className })} ref={ref} {...props} />;
+const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ className, error, ...props }, ref) => {
+	return (
+		<div className={cn(styles["container"], { className })}>
+			<textarea className={cn(styles["textarea"], { [styles["error"]]: error })} ref={ref} {...props} />
+			{error && <span className={styles["error-message"]}>{error}</span>}
+		</div>
+	);
 });
 Textarea.displayName = "Textarea";
 

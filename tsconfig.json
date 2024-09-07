@@ -20,6 +20,7 @@
 		"baseUrl": "./",
 		"paths": {
 			"@/components": ["src/app/_components"],
+			"@/hooks": ["src/app/_hooks"],
 			"@/lib": ["src/app/_lib"],
 			"@/providers": ["src/app/_providers"],
 			"@/styles": ["src/app/_styles"],
