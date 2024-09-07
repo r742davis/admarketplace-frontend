@@ -1,10 +1,20 @@
 import dynamic from "next/dynamic";
+import { Metadata } from "next";
 import { Post } from "@/components";
 import { getPost } from "@/lib";
 
 const CommentComposer = dynamic(() => import("../../_components/CommentComposer/CommentComposer"));
 
-export default async function PostId({ params }: { params: { postId: number } }) {
+type PostIdProps = { params: { postId: number } };
+
+export const generateMetadata = ({ params }: PostIdProps): Metadata => {
+	return {
+		title: `Post ${params.postId}`,
+		description: `Contains the Post #${params.postId}.`,
+	};
+};
+
+export default async function PostId({ params }: PostIdProps) {
 	const post = await getPost(params.postId);
 
 	if (!post) {
