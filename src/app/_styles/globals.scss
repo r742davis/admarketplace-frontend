@@ -8,6 +8,10 @@
 	--foreground-rgb: 0, 0, 0;
 	--background-start-rgb: 214, 219, 220;
 	--background-end-rgb: 255, 255, 255;
+
+	--error: #f23557;
+	--warning: #facf5a;
+	--success: #42b883;
 }
 
 @media (prefers-color-scheme: dark) {
