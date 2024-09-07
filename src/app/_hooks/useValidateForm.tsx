@@ -9,6 +9,8 @@ export function useFormValidation<T>({ validators }: UseFormValidationHook<T>) {
 	const [errors, setErrors] = useState<FormErrors<T>>({});
 	const fieldsRef = useRef<{ [Prop in keyof T]?: HTMLInputElement | HTMLTextAreaElement | null }>({});
 
+	const hasFormError = Object.keys(errors).length !== 0;
+
 	const validateForm = useCallback(() => {
 		const newErrors: FormErrors<T> = {};
 		const fKeys = Object.keys(validators) as Array<keyof T>;
@@ -45,8 +47,9 @@ export function useFormValidation<T>({ validators }: UseFormValidationHook<T>) {
 	}, [validators]);
 
 	return {
-		fields: gatherFields(),
 		errors,
+		hasFormError,
+		gatherFields,
 		register,
 		validateForm,
 	};

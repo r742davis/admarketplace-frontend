@@ -18,7 +18,7 @@ const validators = {
 
 export default function CommentComposer({ postId }: { postId: number }) {
 	const queryClient = useQueryClient();
-	const { fields, errors, register, validateForm } = useFormValidation<CommentForm>({
+	const { errors, hasFormError, gatherFields, register, validateForm } = useFormValidation<CommentForm>({
 		validators,
 	});
 
@@ -46,19 +46,22 @@ export default function CommentComposer({ postId }: { postId: number }) {
 		e.preventDefault();
 		if (!validateForm()) return;
 
+		const { name, email, comment } = gatherFields();
 		const formData: CommentBody = {
 			postId,
-			name: fields["name"],
-			email: fields["email"],
-			body: fields["comment"],
+			name: name,
+			email: email,
+			body: comment,
 		};
 
 		mutate(formData);
 	};
 
+	const showSuccess = isSuccess && !hasFormError;
+
 	return (
 		<form className={styles["container"]} onSubmit={handleSubmit}>
-			{isSuccess && <h2>Submitted!</h2>}
+			{showSuccess && <h2>Submitted!</h2>}
 
 			{isError && <div>An error occurred posting your comment: {mutErr.message}</div>}
 
