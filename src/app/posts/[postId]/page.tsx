@@ -10,8 +10,8 @@ export default async function PostId({ params }: { params: { postId: number } })
 
 	return (
 		<div>
-			<Post postId={post.userId} title={post.title} body={post.body} />
-			<CommentComposer />
+			<Post postId={params.postId} title={post.title} body={post.body} />
+			<CommentComposer postId={params.postId} />
 		</div>
 	);
 }
