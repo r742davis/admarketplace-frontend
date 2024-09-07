@@ -1,5 +1,8 @@
-import { CommentComposer, Post } from "@/components";
+import dynamic from "next/dynamic";
+import { Post } from "@/components";
 import { getPost } from "@/lib";
+
+const CommentComposer = dynamic(() => import("../../_components/CommentComposer/CommentComposer"));
 
 export default async function PostId({ params }: { params: { postId: number } }) {
 	const post = await getPost(params.postId);
