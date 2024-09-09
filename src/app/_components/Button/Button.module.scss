@@ -9,9 +9,10 @@ $inner-shadow:
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	height: max-content;
 	border-radius: var(--border-radius);
-	box-shadow: $shadow;
 	cursor: pointer;
+	box-shadow: $shadow;
 	transition: all 300ms ease-in-out;
 
 	&.primary {

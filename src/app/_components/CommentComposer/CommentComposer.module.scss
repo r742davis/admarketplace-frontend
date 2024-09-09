@@ -1,3 +1,37 @@
-.input-container {
+$shadow:
+	0.5rem 0.5rem 0.96rem var(--greyLight-3),
+	-0.3rem -0.3rem 0.8rem var(--white);
+
+.container {
 	display: flex;
+	flex-flow: row wrap;
+	gap: 1.6rem;
+	width: max-content;
+	max-width: calc(100% - 12rem);
+	padding: 3.2rem 3.2rem 1.6rem;
+	border-radius: 1.6rem;
+	box-shadow: $shadow;
+}
+
+.inputs {
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	grid-template-rows: repeat(2, auto);
+	grid-column-gap: 1.6rem;
+	grid-row-gap: 1.6rem;
+
+	.comment {
+		grid-area: span 2 / span 2;
+		width: 100%;
+	}
+}
+
+.btn-container {
+	display: flex;
+	align-items: flex-end;
+}
+
+.submit-btn {
+	align-self: flex-end;
+	margin-bottom: 1.6rem;
 }

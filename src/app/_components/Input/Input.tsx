@@ -9,7 +9,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input = forwardRef<HTMLInputElement, InputProps>(({ className, type, error, ...props }, ref) => {
 	return (
-		<div className={cn(styles["container"], { className })}>
+		<div className={cn(styles["container"], { [`${className}`]: !!className })}>
 			<input type={type} className={cn(styles["input"], { [styles["error"]]: !!error })} ref={ref} {...props} />
 			{error && <span className={styles["error-message"]}>{error}</span>}
 		</div>

@@ -37,10 +37,15 @@ export default function Button({
 		[disabled, onClick]
 	);
 
-	const classNames = `${styles["button"]} ${styles[variant]} ${styles[size]} ${disabled ? styles["disabled"] : ""}`;
-
 	return (
-		<button type={type} className={cn(classNames, { className })} onClick={handleClick} disabled={disabled}>
+		<button
+			type={type}
+			className={cn(styles["button"], styles[variant], styles[size], {
+				[`${className}`]: !!className,
+				disabled: styles["disabled"],
+			})}
+			onClick={handleClick}
+			disabled={disabled}>
 			{children}
 		</button>
 	);

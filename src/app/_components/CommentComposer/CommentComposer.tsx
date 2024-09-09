@@ -1,9 +1,8 @@
 "use client";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Label } from "@radix-ui/react-label";
 import { useFormValidation } from "@/hooks";
-import { Input, Textarea } from "@/components";
+import { Button, Input, Textarea } from "@/components";
 import { emailFormat, postComment, QUERY_KEYS, required } from "@/lib";
 import styles from "./CommentComposer.module.scss";
 import { CommentBody } from "@/types";
@@ -61,12 +60,7 @@ export default function CommentComposer({ postId }: { postId: number }) {
 
 	return (
 		<form className={styles["container"]} onSubmit={handleSubmit}>
-			{showSuccess && <h2>Submitted!</h2>}
-
-			{isError && <div>An error occurred posting your comment: {mutErr.message}</div>}
-
-			<div className={styles["input-container"]}>
-				<Label htmlFor='name'>Name</Label>
+			<div className={styles["inputs"]}>
 				<Input
 					required
 					disabled={isPending}
@@ -79,7 +73,6 @@ export default function CommentComposer({ postId }: { postId: number }) {
 					error={errors["name"]}
 				/>
 
-				<Label htmlFor='email'>Email</Label>
 				<Input
 					required
 					disabled={isPending}
@@ -91,10 +84,10 @@ export default function CommentComposer({ postId }: { postId: number }) {
 					error={errors["email"]}
 				/>
 
-				<Label htmlFor='comment'>Comment</Label>
 				<Textarea
 					required
 					disabled={isPending}
+					className={styles["comment"]}
 					maxLength={500}
 					id='comment'
 					name='comment'
@@ -103,9 +96,14 @@ export default function CommentComposer({ postId }: { postId: number }) {
 					error={errors["comment"]}
 				/>
 			</div>
-			<button type='submit' className={styles["button"]}>
-				Post
-			</button>
+			<div className={styles["btn-container"]}>
+				<Button type='submit' variant='primary' className={styles["submit-btn"]}>
+					Post
+				</Button>
+				{showSuccess && <p>Submitted!</p>}
+
+				{isError && <p>An error occurred posting your comment: {mutErr.message}</p>}
+			</div>
 		</form>
 	);
 }
