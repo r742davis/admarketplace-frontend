@@ -3,6 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { Comment } from "@/components";
 import { QUERY_KEYS } from "@/lib";
+import styles from "./CommentList.module.scss";
 import { Comment as CommentT } from "@/types";
 
 type CommentsListProps = {
@@ -24,10 +25,13 @@ export default function CommentsList({ comments = [], postId }: CommentsListProp
 	});
 
 	return (
-		<ul>
-			{data.map((c, index) => (
-				<Comment key={`${c.id} + ${index}`} {...c} />
-			))}
-		</ul>
+		<div className={styles["container"]}>
+			<h2>Comments:</h2>
+			<ul>
+				{data.map((c, index) => (
+					<Comment key={`${c.id} + ${index}`} {...c} />
+				))}
+			</ul>
+		</div>
 	);
 }

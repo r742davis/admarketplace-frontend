@@ -1,5 +1,5 @@
 import { CommentList } from "@/components";
-import { getComments } from "@/lib";
+import { capitalize, getComments } from "@/lib";
 import styles from "./Post.module.scss";
 
 type PostProps = {
@@ -12,9 +12,10 @@ export default async function Post({ postId, title, body }: PostProps) {
 	const comments = await getComments(postId);
 
 	return (
-		<div className={styles["post"]}>
-			<h1>{title}</h1>
-			<p>{body}</p>
+		<div className={styles["container"]}>
+			<h1 className={styles["title"]}>{capitalize(title)}</h1>
+			<p className={styles["body"]}>{body}</p>
+			<hr />
 			<CommentList comments={comments} postId={postId} />
 		</div>
 	);

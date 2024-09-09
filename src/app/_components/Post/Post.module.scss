@@ -1,7 +1,14 @@
-.comments-list {
-	list-style: none;
-	display: flex;
-	flex-flow: column nowrap;
-	gap: 0.8rem;
-	padding: 0.8rem;
+.container {
+	max-width: 920px;
+	width: 100%;
+}
+
+.title {
+	text-align: center;
+	padding: 0 0 8vw;
+}
+
+.body {
+	padding: 0 0 1.5em;
+	font-size: 2rem;
 }

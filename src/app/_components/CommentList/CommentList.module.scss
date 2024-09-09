@@ -1,0 +1,12 @@
+.container {
+	display: flex;
+	flex-flow: column;
+	gap: 1.6rem;
+	border-radius: var(--border-radius);
+
+	ul {
+		display: flex;
+		flex-flow: column;
+		gap: inherit;
+	}
+}

@@ -22,9 +22,9 @@ export default async function PostId({ params }: PostIdProps) {
 	}
 
 	return (
-		<div>
+		<>
 			<Post postId={params.postId} title={post.title} body={post.body} />
 			<CommentComposer postId={params.postId} />
-		</div>
+		</>
 	);
 }
