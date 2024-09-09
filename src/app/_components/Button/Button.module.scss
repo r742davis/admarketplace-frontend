@@ -1,0 +1,66 @@
+$shadow:
+	0.5rem 0.5rem 0.96rem var(--greyLight-2),
+	-0.3rem -0.3rem 0.8rem var(--white);
+$inner-shadow:
+	inset 0.3rem 0.3rem 0.8rem var(--greyLight-2),
+	inset -0.3rem -0.3rem 0.8rem var(--white);
+
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--border-radius);
+	box-shadow: $shadow;
+	cursor: pointer;
+	transition: all 300ms ease-in-out;
+
+	&.primary {
+		background: var(--primary);
+		box-shadow:
+			inset 0.3rem 0.3rem 1.6rem var(--primary-light),
+			inset -0.3rem -0.3rem 1.6rem var(--primary-dark);
+		color: var(--greyLight-1);
+
+		&:hover {
+			color: var(--white);
+		}
+
+		&:active {
+			box-shadow:
+				inset 0.3rem 0.3rem 1.6rem var(--primary-dark),
+				inset -0.3rem -0.3rem 1.6rem var(--primary-light);
+			transition: all 300ms ease-in-out;
+		}
+	}
+
+	&.secondary {
+		color: var(--greyDark);
+
+		&:hover {
+			color: var(--primary);
+		}
+
+		&:active {
+			box-shadow: $inner-shadow;
+			transition: all 300ms ease-in-out;
+		}
+	}
+
+	&.small {
+		padding: 1.2rem 0.4rem;
+		font-size: 1.2rem;
+		width: 10rem;
+	}
+
+	&.medium {
+		padding: 1.6rem 0.8rem;
+		font-size: 1.6rem;
+		width: 20rem;
+	}
+
+	&.large {
+		padding: 2rem 1.2rem;
+		font-size: 2rem;
+		width: 25rem;
+	}
+}
