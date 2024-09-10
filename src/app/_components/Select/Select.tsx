@@ -1,43 +1,57 @@
 "use client";
 
-import { ChangeEvent, useCallback } from "react";
+import { forwardRef } from "react";
+import cn from "classnames";
+import * as ReactSelect from "@radix-ui/react-select";
+import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons";
 import styles from "./Select.module.scss";
 
-type Option = {
-	id: number;
-	value: string;
-	label?: string;
+export type SelectProps = {
+	options: Array<{ id: string; value: string; label?: string }> | undefined;
+	placeholder?: string;
+	onValueChange?(value: string): void;
 };
 
-type SelectProps = {
-	options: Array<Option>;
-	value: string;
-	onChange: (event: ChangeEvent<HTMLSelectElement>, args: Array<unknown>) => void;
-	label?: string;
-	overrideValue?: boolean;
-};
-
-export default function Select({ options = [], overrideValue = true, value = "", onChange, label }: SelectProps) {
-	const handleChange = useCallback(
-		(event: ChangeEvent<HTMLSelectElement>, ...args: Array<unknown>) => {
-			onChange(event, args);
-		},
-		[onChange]
-	);
-
+export default function Select({ options, placeholder = "Select an item", onValueChange }: SelectProps) {
 	return (
-		<div className={styles["container"]}>
-			{label && <label htmlFor='select'>{label}</label>}
-			<select id='select' className={styles["select"]} value={value} onChange={handleChange}>
-				<option value='' disabled>
-					Please Select a Post
-				</option>
-				{options.map(option => (
-					<option key={option.value} value={overrideValue ? option.id : option.value}>
-						{option?.label ?? option.value}
-					</option>
-				))}
-			</select>
-		</div>
+		<ReactSelect.Root onValueChange={onValueChange}>
+			<ReactSelect.Trigger className={styles.Trigger} aria-label='Food'>
+				<ReactSelect.Value placeholder={placeholder} />
+				<ReactSelect.Icon className={styles.Icon}>
+					<ChevronDownIcon />
+				</ReactSelect.Icon>
+			</ReactSelect.Trigger>
+			<ReactSelect.Portal>
+				<ReactSelect.Content className={styles.Content}>
+					<ReactSelect.ScrollUpButton className={styles.ScrollButton}>
+						<ChevronUpIcon />
+					</ReactSelect.ScrollUpButton>
+					<ReactSelect.Viewport className={styles.Viewport}>
+						{options &&
+							options.map(opt => (
+								<SelectItem key={opt.value} value={opt.id.toString()}>
+									{opt?.label ?? opt.value}
+								</SelectItem>
+							))}
+					</ReactSelect.Viewport>
+					<ReactSelect.ScrollDownButton className={styles.ScrollButton}>
+						<ChevronDownIcon />
+					</ReactSelect.ScrollDownButton>
+				</ReactSelect.Content>
+			</ReactSelect.Portal>
+		</ReactSelect.Root>
 	);
 }
+
+const SelectItem = forwardRef<HTMLDivElement, ReactSelect.SelectItemProps>((props, forwardedRef) => {
+	return (
+		<ReactSelect.Item className={cn(styles.Item, props.className)} {...props} ref={forwardedRef}>
+			<ReactSelect.ItemText>{props.children}</ReactSelect.ItemText>
+			<ReactSelect.ItemIndicator className={styles.ItemIndicator}>
+				<CheckIcon />
+			</ReactSelect.ItemIndicator>
+		</ReactSelect.Item>
+	);
+});
+
+SelectItem.displayName = "SelectItem";

@@ -22,7 +22,12 @@ export default function Home() {
 		queryKey: QUERY_KEYS.POSTS.LIST,
 		queryFn: getPosts,
 		select: res => {
-			return res?.map(({ id, title }) => ({ id, value: `Post #${id}: ${title}` })) ?? null;
+			if (!res) return [] as { id: string; value: string; label?: string }[];
+			return res.map(({ id, title }) => ({
+				id: id.toString(),
+				value: id.toString(),
+				label: `Post #${id}: ${title}`,
+			}));
 		},
 	});
 
@@ -37,7 +42,7 @@ export default function Home() {
 				</h1>
 				<p className={styles["sub-heading"]}>Start creating today!</p>
 			</div>
-			<Select items={posts} onChange={handleChange} placeholder={"Please Select a Post"} />
+			<Select options={posts} onValueChange={handleChange} placeholder={"Please Select a Post"} />
 		</HydrationBoundary>
 	);
 }
