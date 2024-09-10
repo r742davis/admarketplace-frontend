@@ -26,7 +26,7 @@ export default function CommentsList({ comments = [], postId }: CommentsListProp
 
 	return (
 		<div className={styles["container"]}>
-			<p>Comments:</p>
+			<h5>Comments:</h5>
 			<ul>
 				{data.map((c, index) => (
 					<Comment key={`${c.id} + ${index}`} {...c} />
