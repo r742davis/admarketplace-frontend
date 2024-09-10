@@ -1,20 +1,19 @@
 "use client";
 
-import { ChangeEvent, useCallback, useState } from "react";
+import { useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { HydrationBoundary, dehydrate, useQuery } from "@tanstack/react-query";
 import { Select } from "@/components";
 import { getPosts, getQueryClient, QUERY_KEYS } from "@/lib";
+import styles from "./page.module.scss";
 
 export default function Home() {
-	const [selectedValue, setSelectedValue] = useState("");
 	const { push } = useRouter();
 	const queryClient = getQueryClient();
 
 	const handleChange = useCallback(
-		(event: ChangeEvent<HTMLSelectElement>) => {
-			setSelectedValue(event.target.value);
-			push(`/posts/${event.target.value}`);
+		(value: string) => {
+			push(`/posts/${value}`);
 		},
 		[push]
 	);
@@ -29,13 +28,16 @@ export default function Home() {
 
 	return (
 		<HydrationBoundary state={dehydrate(queryClient)}>
-			<Select
-				overrideValue
-				options={posts ?? []}
-				value={selectedValue}
-				onChange={handleChange}
-				label={"Please Select a Post"}
-			/>
+			<div className={styles["heading-container"]}>
+				<h1 className={styles["heading"]}>
+					Create.
+					<br /> Post.
+					<br /> Read!
+					<br />
+				</h1>
+				<p className={styles["sub-heading"]}>Start creating today!</p>
+			</div>
+			<Select items={posts} onChange={handleChange} placeholder={"Please Select a Post"} />
 		</HydrationBoundary>
 	);
 }

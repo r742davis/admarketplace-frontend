@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { DM_Sans } from "next/font/google";
+import { Footer, Header, Main } from "@/components";
 import { Providers } from "@/providers";
-import "./_styles/globals.scss";
+import "./_styles/globals.css";
 
-const font = localFont({ src: "../public/Wotfard-Regular.otf", display: "swap", variable: "--wotfard" });
+const dmSans = DM_Sans({
+	subsets: ["latin"],
+	weight: ["300", "500", "700"],
+	style: ["normal", "italic"],
+	variable: "--dm-sans",
+});
 
 export const metadata: Metadata = {
 	title: "Postr",
@@ -17,11 +23,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={font.className}>
+			<body className={dmSans.className}>
 				<Providers>
-					{/* <header></header> */}
-					<main role='main'>{children}</main>
-					{/* <footer></footer> */}
+					<Header />
+					<Main>{children}</Main>
+					<Footer />
 				</Providers>
 			</body>
 		</html>

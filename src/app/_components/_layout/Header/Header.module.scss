@@ -1,0 +1,31 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding-inline: var(--article-padding);
+	padding-block: calc(var(--article-padding) / 2);
+	position: fixed;
+	top: 0;
+
+	h1 {
+		--bg-size: 400%;
+		font-family: sans-serif;
+		background: linear-gradient(90deg, var(--violet-10), var(--violet-8), var(--violet-10)) 0 0 / var(--bg-size)
+			100%;
+		color: transparent;
+		background-clip: text;
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.header h1 {
+		animation: move-bg 12s linear infinite;
+	}
+
+	@keyframes move-bg {
+		to {
+			background-position: var(--bg-size) 0;
+		}
+	}
+}

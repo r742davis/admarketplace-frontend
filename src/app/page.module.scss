@@ -5,3 +5,18 @@
 	flex-flow: column nowrap;
 	min-height: var(--viewport-height);
 }
+
+.heading-container {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-flow: column nowrap;
+	padding-block: var(--padding-medium);
+	width: 100%;
+}
+
+.sub-heading {
+	color: var(--slate-10);
+	font-weight: 300;
+	font-style: italic;
+}

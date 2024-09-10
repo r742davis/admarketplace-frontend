@@ -1,0 +1,10 @@
+.footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-inline: var(--article-padding);
+	padding-block: calc(var(--article-padding) * 2);
+	min-height: 8rem;
+	background-color: var(--white);
+	border-top: 1px solid #ccc;
+}
