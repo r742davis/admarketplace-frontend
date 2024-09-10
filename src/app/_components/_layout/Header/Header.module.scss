@@ -16,6 +16,11 @@
 		color: transparent;
 		background-clip: text;
 	}
+
+	&.is-scrolled {
+		background-color: var(--white);
+		transition: background-color 300ms ease-in-out;
+	}
 }
 
 @media (prefers-reduced-motion: no-preference) {
