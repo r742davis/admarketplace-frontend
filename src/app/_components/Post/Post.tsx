@@ -15,7 +15,6 @@ export default async function Post({ postId, title, body }: PostProps) {
 		<div className={styles["container"]}>
 			<h1 className={styles["title"]}>{capitalize(title)}</h1>
 			<p className={styles["body"]}>{body}</p>
-			<hr />
 			<CommentList comments={comments} postId={postId} />
 		</div>
 	);

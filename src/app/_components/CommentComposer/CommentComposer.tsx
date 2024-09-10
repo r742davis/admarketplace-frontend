@@ -60,6 +60,7 @@ export default function CommentComposer({ postId }: { postId: number }) {
 
 	return (
 		<form className={styles["container"]} onSubmit={handleSubmit}>
+			<h3 className={styles["heading"]}>Post a Comment</h3>
 			<div className={styles["inputs"]}>
 				<Input
 					required

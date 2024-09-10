@@ -1,27 +1,34 @@
 $shadow:
-	0.5rem 0.5rem 0.96rem var(--greyLight-3),
+	0.5rem 0.5rem 0.9rem var(--greyLight-3),
 	-0.3rem -0.3rem 0.8rem var(--white);
 
 .container {
 	display: flex;
 	flex-flow: row wrap;
-	gap: 1.6rem;
-	width: max-content;
-	max-width: calc(100% - 12rem);
-	padding: 3.2rem 3.2rem 1.6rem;
+	gap: var(--gap-large);
+	align-self: flex-start;
+	padding: var(--padding-large);
+	padding-bottom: var(--padding-medium);
 	border-radius: 1.6rem;
-	box-shadow: $shadow;
+	background-color: var(--white);
+	// box-shadow: $shadow;
+	width: 100%;
+}
+
+.heading {
+	flex: 1 0 100%;
 }
 
 .inputs {
+	flex: 1;
 	display: grid;
-	grid-template-columns: repeat(2, auto);
-	grid-template-rows: repeat(2, auto);
-	grid-column-gap: 1.6rem;
-	grid-row-gap: 1.6rem;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	grid-column-gap: var(--gap-medium);
+	grid-row-gap: var(--gap-medium);
+	width: 100%;
 
 	.comment {
-		grid-area: span 2 / span 2;
 		width: 100%;
 	}
 }
@@ -34,4 +41,20 @@ $shadow:
 .submit-btn {
 	align-self: flex-end;
 	margin-bottom: 1.6rem;
+}
+
+@media screen and (min-width: 575px) {
+	.container {
+		width: auto;
+	}
+
+	.inputs {
+		grid-template-columns: repeat(2, auto);
+		grid-template-rows: repeat(2, auto);
+	}
+
+	.comment {
+		grid-area: span 2 / span 2;
+		width: 100%;
+	}
 }

@@ -1,7 +1,7 @@
 .container {
 	display: flex;
 	flex-flow: column;
-	gap: 1.6rem;
+	gap: var(--gap-medium);
 	border-radius: var(--border-radius);
 
 	ul {
