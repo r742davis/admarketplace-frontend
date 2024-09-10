@@ -13,7 +13,7 @@ export default function Home() {
 
 	const handleChange = useCallback(
 		(value: string) => {
-			push(`/posts/${value}`);
+			push(`/posts/${value}`, { scroll: true });
 		},
 		[push]
 	);

@@ -8,11 +8,12 @@
 
 .heading-container {
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	justify-content: center;
 	flex-flow: column nowrap;
 	padding-block: var(--padding-medium);
 	width: 100%;
+	text-align: center;
 }
 
 .sub-heading {

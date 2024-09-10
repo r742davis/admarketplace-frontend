@@ -51,7 +51,12 @@
 }
 
 .Viewport {
+	max-width: calc(var(--viewport-width) - (var(--article-padding) * 2));
 	padding: 5px;
+	display: flex;
+	flex-flow: column;
+	padding: 1rem;
+	gap: var(--gap-medium);
 }
 
 .Item {
@@ -61,8 +66,9 @@
 	border-radius: 3px;
 	display: flex;
 	align-items: center;
-	height: 25px;
-	padding: 0 35px 0 25px;
+	min-height: auto;
+	height: 100%;
+	padding: var(--padding-small);
 	position: relative;
 	user-select: none;
 	&[data-disabled] {
