@@ -4,6 +4,7 @@ import { forwardRef } from "react";
 import cn from "classnames";
 import * as ReactSelect from "@radix-ui/react-select";
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons";
+import { testIds } from "./Select.test-ids";
 import styles from "./Select.module.scss";
 
 export type SelectProps = {
@@ -12,10 +13,10 @@ export type SelectProps = {
 	onValueChange?(value: string): void;
 };
 
-export default function Select({ options, placeholder = "Select an item", onValueChange }: SelectProps) {
+export default function Select({ options, placeholder = "Select an item", onValueChange, ...props }: SelectProps) {
 	return (
-		<ReactSelect.Root onValueChange={onValueChange}>
-			<ReactSelect.Trigger className={styles["trigger"]} aria-label='Food'>
+		<ReactSelect.Root onValueChange={onValueChange} open={true} {...props}>
+			<ReactSelect.Trigger className={styles["trigger"]} aria-label='Food' data-testid={testIds.trigger}>
 				<ReactSelect.Value placeholder={placeholder} />
 				<ReactSelect.Icon className={styles["icon"]}>
 					<ChevronDownIcon />
@@ -26,10 +27,10 @@ export default function Select({ options, placeholder = "Select an item", onValu
 					<ReactSelect.ScrollUpButton className={styles["scroll-button"]}>
 						<ChevronUpIcon />
 					</ReactSelect.ScrollUpButton>
-					<ReactSelect.Viewport className={styles["viewport"]}>
+					<ReactSelect.Viewport className={styles["viewport"]} data-testid={testIds.dropdown}>
 						{options &&
 							options.map(opt => (
-								<SelectItem key={opt.value} value={opt.id.toString()}>
+								<SelectItem key={opt.value} value={opt.id} data-testid={testIds.selectItem}>
 									{opt?.label ?? opt.value}
 								</SelectItem>
 							))}
