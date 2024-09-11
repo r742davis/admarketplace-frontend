@@ -15,7 +15,7 @@ export type SelectProps = {
 
 export default function Select({ options, placeholder = "Select an item", onValueChange, ...props }: SelectProps) {
 	return (
-		<ReactSelect.Root onValueChange={onValueChange} open={true} {...props}>
+		<ReactSelect.Root onValueChange={onValueChange} {...props}>
 			<ReactSelect.Trigger className={styles["trigger"]} aria-label='Food' data-testid={testIds.trigger}>
 				<ReactSelect.Value placeholder={placeholder} />
 				<ReactSelect.Icon className={styles["icon"]}>
