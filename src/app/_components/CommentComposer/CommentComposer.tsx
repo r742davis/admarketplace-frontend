@@ -3,7 +3,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useFormValidation } from "@/hooks";
 import { Button, Input, Textarea } from "@/components";
-import { emailFormat, postComment, QUERY_KEYS, required } from "@/lib";
+import { emailFormat, postComment, queryKeys, required } from "@/lib";
 import styles from "./CommentComposer.module.scss";
 import { CommentBody } from "@/types";
 
@@ -33,11 +33,11 @@ export default function CommentComposer({ postId }: { postId: number }) {
 		},
 		onSuccess: data => {
 			const oldComments: Array<CommentBody> | undefined = queryClient.getQueryData(
-				QUERY_KEYS.COMMENTS.DETAILS(Number(postId))
+				queryKeys.COMMENTS.DETAILS(Number(postId))
 			);
 
-			queryClient.invalidateQueries({ queryKey: QUERY_KEYS.COMMENTS.DETAILS(Number(postId)) });
-			queryClient.setQueryData(QUERY_KEYS.COMMENTS.DETAILS(Number(postId)), () => [...(oldComments ?? []), data]);
+			queryClient.invalidateQueries({ queryKey: queryKeys.COMMENTS.DETAILS(Number(postId)) });
+			queryClient.setQueryData(queryKeys.COMMENTS.DETAILS(Number(postId)), () => [...(oldComments ?? []), data]);
 		},
 	});
 

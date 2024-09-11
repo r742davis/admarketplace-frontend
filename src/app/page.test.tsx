@@ -20,7 +20,7 @@ jest.mock("@tanstack/react-query", () => ({
 jest.mock("./_lib", () => ({
 	getPosts: jest.fn(),
 	getQueryClient: jest.fn(),
-	QUERY_KEYS: {
+	queryKeys: {
 		POSTS: {
 			LIST: "posts-list-key",
 		},

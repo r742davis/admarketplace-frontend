@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { Comment } from "@/components";
-import { QUERY_KEYS } from "@/lib";
+import { queryKeys } from "@/lib";
 import styles from "./CommentList.module.scss";
 import { Comment as CommentT } from "@/types";
 
@@ -13,7 +13,7 @@ type CommentsListProps = {
 
 export default function CommentsList({ comments = [], postId }: CommentsListProps) {
 	const { data } = useQuery({
-		queryKey: QUERY_KEYS.COMMENTS.DETAILS(Number(postId)),
+		queryKey: queryKeys.COMMENTS.DETAILS(Number(postId)),
 		initialData: comments,
 		staleTime: Infinity,
 		refetchOnWindowFocus: false,

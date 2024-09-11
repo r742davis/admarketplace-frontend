@@ -4,7 +4,7 @@ import { useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { HydrationBoundary, dehydrate, useQuery } from "@tanstack/react-query";
 import { Select } from "@/components";
-import { getPosts, getQueryClient, QUERY_KEYS } from "@/lib";
+import { getPosts, getQueryClient, queryKeys } from "@/lib";
 import styles from "./page.module.scss";
 
 export default function Home() {
@@ -19,7 +19,7 @@ export default function Home() {
 	);
 
 	const { data: posts } = useQuery({
-		queryKey: QUERY_KEYS.POSTS.LIST,
+		queryKey: queryKeys.POSTS.LIST,
 		queryFn: getPosts,
 		select: res => {
 			if (!res) return [] as { id: string; value: string; label?: string }[];
