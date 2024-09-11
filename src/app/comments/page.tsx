@@ -1,5 +1,5 @@
 import { Comment } from "@/components";
-import { getComments } from "@/lib";
+import { getComments } from "@/lib/api";
 import styles from "./page.module.scss";
 
 export default async function Comments({ searchParams }: { searchParams: { postId: number } }) {

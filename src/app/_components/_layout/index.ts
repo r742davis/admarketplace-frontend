@@ -1,4 +1,4 @@
-export * from "./Footer";
-export * from "./Header";
-export * from "./Main";
-export * from "./NavigationMenu";
+export { Footer } from "./Footer";
+export { Header } from "./Header";
+export { Main } from "./Main";
+export { NavigationMenu } from "./NavigationMenu";

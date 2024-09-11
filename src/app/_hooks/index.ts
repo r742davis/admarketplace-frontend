@@ -1,1 +1,1 @@
-export * from "./useFormValidation";
+export { useFormValidation } from "./useFormValidation";

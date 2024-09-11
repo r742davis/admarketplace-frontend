@@ -1,4 +1,5 @@
-import { fetcher, POST_API_URL } from "@/lib";
+import { fetcher } from "@/lib/utils";
+import { POST_API_URL } from "@/lib/constants";
 import { Post } from "@/types";
 
 export async function getPost(postId: number): Promise<Post | undefined> {

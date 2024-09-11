@@ -1,5 +1,6 @@
 import { CommentList } from "@/components";
-import { capitalize, getComments } from "@/lib";
+import { capitalize } from "@/lib/utils";
+import { getComments } from "@/lib/api";
 import styles from "./Post.module.scss";
 
 type PostProps = {

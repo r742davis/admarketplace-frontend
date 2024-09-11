@@ -1,2 +1,4 @@
+export * from "./capitalize";
 export * from "./fetcher";
-export * from "./strings";
+export * from "./isEmailFormat";
+export * from "./isRequired";

@@ -1,5 +1,5 @@
 import * as Avatar from "@radix-ui/react-avatar";
-import { capitalize } from "@/lib";
+import { capitalize } from "@/lib/utils";
 import styles from "./Comment.module.scss";
 import { Comment as TComment } from "@/types";
 

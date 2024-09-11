@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { Comment } from "@/components";
-import { queryKeys } from "@/lib";
+import { queryKeys } from "@/lib/constants";
 import styles from "./CommentList.module.scss";
 import { Comment as CommentT } from "@/types";
 

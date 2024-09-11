@@ -20,8 +20,11 @@
 		"baseUrl": "./",
 		"paths": {
 			"@/components": ["src/app/_components"],
+			"@/components/layout": ["src/app/_components/_layout"],
 			"@/hooks": ["src/app/_hooks"],
-			"@/lib": ["src/app/_lib"],
+			"@/lib/api": ["src/app/_lib/api"],
+			"@/lib/constants": ["src/app/_lib/constants"],
+			"@/lib/utils": ["src/app/_lib/utils"],
 			"@/providers": ["src/app/_providers"],
 			"@/styles": ["src/app/_styles"],
 			"@/types": ["src/app/_types"]

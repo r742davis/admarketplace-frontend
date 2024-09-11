@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import { Metadata } from "next";
 import { Post } from "@/components";
-import { getPost } from "@/lib";
+import { getPost } from "@/lib/api";
 
 const CommentComposer = dynamic(() => import("../../_components/CommentComposer/CommentComposer"));
 

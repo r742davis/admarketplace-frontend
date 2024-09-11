@@ -3,8 +3,8 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import cn from "classnames";
-import { NavigationMenu } from "@/components";
-import { SCROLL_DEBOUNCE_DELAY } from "@/lib";
+import { NavigationMenu } from "@/components/layout";
+import { SCROLL_DEBOUNCE_DELAY } from "@/lib/constants";
 import styles from "./Header.module.scss";
 
 export default function Header() {

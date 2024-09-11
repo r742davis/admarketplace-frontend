@@ -3,16 +3,18 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useFormValidation } from "@/hooks";
 import { Button, Input, Textarea } from "@/components";
-import { emailFormat, postComment, queryKeys, required } from "@/lib";
+import { isRequired, isEmailFormat } from "@/lib/utils";
+import { queryKeys } from "@/lib/constants";
+import { postComment } from "@/lib/api";
 import styles from "./CommentComposer.module.scss";
 import { CommentBody } from "@/types";
 
 type CommentForm = { name: string; email: string; comment: string };
 
 const validators = {
-	name: (v: string) => required(v),
-	email: (v: string) => required(v) || emailFormat(v),
-	comment: (v: string) => required(v),
+	name: (v: string) => isRequired(v),
+	email: (v: string) => isRequired(v) || isEmailFormat(v),
+	comment: (v: string) => isRequired(v),
 };
 
 export default function CommentComposer({ postId }: { postId: number }) {

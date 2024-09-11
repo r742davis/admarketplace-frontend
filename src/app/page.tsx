@@ -4,7 +4,8 @@ import { useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { HydrationBoundary, dehydrate, useQuery } from "@tanstack/react-query";
 import { Select } from "@/components";
-import { getPosts, getQueryClient, queryKeys } from "@/lib";
+import { queryKeys } from "@/lib/constants";
+import { getPosts, getQueryClient } from "@/lib/api";
 import styles from "./page.module.scss";
 
 export default function Home() {
