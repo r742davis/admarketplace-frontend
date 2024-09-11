@@ -15,18 +15,18 @@ export type SelectProps = {
 export default function Select({ options, placeholder = "Select an item", onValueChange }: SelectProps) {
 	return (
 		<ReactSelect.Root onValueChange={onValueChange}>
-			<ReactSelect.Trigger className={styles.Trigger} aria-label='Food'>
+			<ReactSelect.Trigger className={styles["trigger"]} aria-label='Food'>
 				<ReactSelect.Value placeholder={placeholder} />
-				<ReactSelect.Icon className={styles.Icon}>
+				<ReactSelect.Icon className={styles["icon"]}>
 					<ChevronDownIcon />
 				</ReactSelect.Icon>
 			</ReactSelect.Trigger>
 			<ReactSelect.Portal>
-				<ReactSelect.Content className={styles.Content}>
-					<ReactSelect.ScrollUpButton className={styles.ScrollButton}>
+				<ReactSelect.Content className={styles["content"]}>
+					<ReactSelect.ScrollUpButton className={styles["scroll-button"]}>
 						<ChevronUpIcon />
 					</ReactSelect.ScrollUpButton>
-					<ReactSelect.Viewport className={styles.Viewport}>
+					<ReactSelect.Viewport className={styles["viewport"]}>
 						{options &&
 							options.map(opt => (
 								<SelectItem key={opt.value} value={opt.id.toString()}>
@@ -34,7 +34,7 @@ export default function Select({ options, placeholder = "Select an item", onValu
 								</SelectItem>
 							))}
 					</ReactSelect.Viewport>
-					<ReactSelect.ScrollDownButton className={styles.ScrollButton}>
+					<ReactSelect.ScrollDownButton className={styles["scroll-button"]}>
 						<ChevronDownIcon />
 					</ReactSelect.ScrollDownButton>
 				</ReactSelect.Content>
@@ -45,9 +45,9 @@ export default function Select({ options, placeholder = "Select an item", onValu
 
 const SelectItem = forwardRef<HTMLDivElement, ReactSelect.SelectItemProps>((props, forwardedRef) => {
 	return (
-		<ReactSelect.Item className={cn(styles.Item, props.className)} {...props} ref={forwardedRef}>
+		<ReactSelect.Item className={cn(styles["item"], props.className)} {...props} ref={forwardedRef}>
 			<ReactSelect.ItemText>{props.children}</ReactSelect.ItemText>
-			<ReactSelect.ItemIndicator className={styles.ItemIndicator}>
+			<ReactSelect.ItemIndicator className={styles["item-indicator"]}>
 				<CheckIcon />
 			</ReactSelect.ItemIndicator>
 		</ReactSelect.Item>

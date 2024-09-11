@@ -11,7 +11,7 @@
 }
 
 // Radix UI Styles //
-.Trigger {
+.trigger {
 	all: unset;
 	display: inline-flex;
 	align-items: center;
@@ -25,22 +25,25 @@
 	background-color: var(--white);
 	color: var(--violet-11);
 	box-shadow: 0 2px 10px var(--black-a7);
+
 	&:hover {
 		background-color: var(--mauve-3);
 	}
+
 	&:focus {
 		box-shadow: 0 0 0 2px black;
 	}
+
 	&[data-placeholder] {
 		color: var(--violet-9);
 	}
 }
 
-.Icon {
+.icon {
 	color: Var(--violet-11);
 }
 
-.Content {
+.content {
 	overflow: hidden;
 	background-color: var(--white);
 	border-radius: 6px;
@@ -50,7 +53,7 @@
 	max-height: 200px;
 }
 
-.Viewport {
+.viewport {
 	max-width: calc(var(--viewport-width) - (var(--article-padding) * 2));
 	padding: 5px;
 	display: flex;
@@ -59,7 +62,7 @@
 	gap: var(--gap-medium);
 }
 
-.Item {
+.item {
 	font-size: 1.4rem;
 	line-height: 1;
 	color: var(--violet-11);
@@ -71,10 +74,12 @@
 	padding: var(--padding-small);
 	position: relative;
 	user-select: none;
+
 	&[data-disabled] {
 		color: var(--mauve-8);
 		pointer-events: none;
 	}
+
 	&[data-highlighted] {
 		outline: none;
 		background-color: var(--violet-9);
@@ -82,20 +87,20 @@
 	}
 }
 
-.Label {
+.label {
 	padding: 0 25px;
 	font-size: 12px;
 	line-height: 25px;
 	color: var(--mauve-11);
 }
 
-.Separator {
+.separator {
 	height: 1px;
 	background-color: var(--violet-6);
 	margin: 5px;
 }
 
-.ItemIndicator {
+.item-indicator {
 	position: absolute;
 	left: 0;
 	width: 25px;
@@ -104,7 +109,7 @@
 	justify-content: center;
 }
 
-.ScrollButton {
+.scroll-button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
