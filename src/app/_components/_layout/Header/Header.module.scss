@@ -4,17 +4,28 @@
 	align-items: center;
 	width: 100%;
 	padding-inline: var(--article-padding);
-	padding-block: calc(var(--article-padding) / 2);
+	padding-block: calc(var(--article-padding) / 6);
 	position: fixed;
 	top: 0;
 
 	h1 {
 		--bg-size: 400%;
 		font-family: sans-serif;
-		background: linear-gradient(90deg, var(--violet-10), var(--violet-8), var(--violet-10)) 0 0 / var(--bg-size)
-			100%;
+		background: linear-gradient(
+				90deg,
+				var(--violet-10),
+				var(--violet-8),
+				var(--violet-10),
+				var(--violet-8),
+				var(--violet-10)
+			)
+			0 0 / var(--bg-size) 200%;
 		color: transparent;
 		background-clip: text;
+	}
+
+	a:hover {
+		text-decoration: none;
 	}
 
 	&.is-scrolled {

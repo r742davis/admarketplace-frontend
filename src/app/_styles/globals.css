@@ -20,6 +20,12 @@
 	--padding-medium: 1.6rem;
 	--padding-large: 3.2rem;
 
+	--width-375: 375px;
+	--width-480: 480px;
+	--width-769: 769px;
+	--width-1024: 1024px;
+	--width-1200: 1200px;
+
 	--primary-light: #8abdff;
 	--primary: #6d5dfc;
 	--primary-dark: #5b0eeb;
@@ -32,6 +38,7 @@
 	--greyLight-3: #bec8e4;
 	--greyDark: #181f0b;
 	--color-text: hsl(222deg 22% 5%);
+	--color-text-hover: hsl(222deg 22% 20%);
 
 	--error: #e41768;
 	--warning: #facf5a;
@@ -331,6 +338,11 @@ a {
 	background-color: transparent;
 	text-decoration: none;
 	color: inherit;
+}
+
+a:hover {
+	color: var(--color-text-hover);
+	text-decoration: underline;
 }
 
 b,

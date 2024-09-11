@@ -1,5 +1,7 @@
 .footer {
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 100px auto;
 	justify-content: space-between;
 	align-items: center;
 	padding-inline: var(--article-padding);
@@ -7,10 +9,6 @@
 	min-height: 8rem;
 	background-color: var(--white);
 	border-top: 1px solid var(--slate-a5);
-
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 100px auto;
 }
 
 .heading {
@@ -60,6 +58,7 @@
 	.heading {
 		grid-area: 1 / 1 / 2 / 2;
 		align-self: flex-end;
+		justify-self: flex-start;
 	}
 
 	.subheading {
