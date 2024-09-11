@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 import cn from "classnames";
 import { NavigationMenu } from "@/components";
 import { SCROLL_DEBOUNCE_DELAY } from "@/lib";
@@ -36,7 +37,9 @@ export default function Header() {
 			className={cn(styles["header"], {
 				[styles["is-scrolled"]]: isScrolled,
 			})}>
-			<h1>postr</h1>
+			<Link href='/'>
+				<h1>postr</h1>
+			</Link>
 			<NavigationMenu />
 		</header>
 	);
