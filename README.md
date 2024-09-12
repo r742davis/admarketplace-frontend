@@ -1,4 +1,4 @@
-# AdMarketplace Frontend
+# adMarketplace Frontend Assessment
 
 This repository contains the frontend code for my AdMarketplace assessment, built using [Next.js](https://nextjs.org/). The project implements a "Postr" app platform for managing and displaying posts with a scalable, modular frontend architecture.
 
