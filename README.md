@@ -1,6 +1,6 @@
 # AdMarketplace Frontend
 
-This repository contains the frontend code for the AdMarketplace application, built using [Next.js](https://nextjs.org/). The project implements a "Postr" app platform for managing and displaying posts with a scalable, modular frontend architecture.
+This repository contains the frontend code for my AdMarketplace assessment, built using [Next.js](https://nextjs.org/). The project implements a "Postr" app platform for managing and displaying posts with a scalable, modular frontend architecture.
 
 ## Table of Contents
 
@@ -111,7 +111,7 @@ admarketplace-frontend/app/src
 
 -   **Redis:** Caching for API responses, user session persistence, rate-limiting user post frequency, and background task processing.
 -   **Redux:** Increased complexity will require state management to share props and prevent excessive React component re-renders.
--   **PWAs:`** Provide offline capability for the application so the user can add posts and comments offline until the network is available.
+-   **PWAs:** Provide offline capability for the application so the user can add posts and comments offline until the network is available.
 -   **CI/CD Pipeline:** Add GitHub Actions, build process optimizations, and performance testing for better dev-to-production speed and quality.
 -   **Component Library:** Improves dev speed and project scalability with re-usable components and testing with Storybook.
 -   **Virtualized Lists:** Add virual list components, along with API pagination and infinite scroll, to improve the rendering performance of large lists of posts.
