@@ -8,6 +8,7 @@ package-lock.json
 yarn.lock
 
 *.min.js
+*.hbs
 
 *.snap
 *.log

@@ -22,6 +22,7 @@
 		"@typescript-eslint/no-explicit-any": "error",
 		"import/no-relative-packages": "error",
 		"import/no-self-import": "error",
+		"eslint-plugin-import/default": 0,
 		"import/order": [
 			"error",
 			{
@@ -71,5 +72,5 @@
 			}
 		]
 	},
-	"ignorePatterns": ["**/*.css", "**/*.scss"]
+	"ignorePatterns": ["**/*.css", "**/*.scss", "**/*.hbs", "plopFile.js"]
 }
