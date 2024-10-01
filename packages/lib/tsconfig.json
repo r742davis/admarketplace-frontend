@@ -1,0 +1,17 @@
+{
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+      "outDir": "dist",
+      "rootDir": "src",
+      "declaration": true,
+      "declarationDir": "dist/types",
+      "composite": true
+    },
+    "paths": {
+      "@/lib": ["packages/components/src/lib"],
+      "@/lib/*": ["packages/components/src/lib/*"],
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
+  }
+  

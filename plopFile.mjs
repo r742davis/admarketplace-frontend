@@ -21,22 +21,22 @@ export default function (
 			const actions = [
 				{
 					type: "add",
-					path: "src/app/_components/{{pascalCase name}}/{{pascalCase name}}.tsx",
+					path: "app/_components/{{pascalCase name}}/{{pascalCase name}}.tsx",
 					templateFile: "plop-templates/Component/component.hbs",
 				},
 				{
 					type: "add",
-					path: "src/app/_components/{{pascalCase name}}/{{pascalCase name}}.module.scss",
+					path: "app/_components/{{pascalCase name}}/{{pascalCase name}}.module.scss",
 					templateFile: "plop-templates/Component/scss-module.hbs",
 				},
 				{
 					type: "add",
-					path: "src/app/_components/{{pascalCase name}}/index.ts",
+					path: "app/_components/{{pascalCase name}}/index.ts",
 					templateFile: "plop-templates/Component/index.hbs",
 				},
 				{
 					type: "append",
-					path: "src/app/_components/index.ts",
+					path: "app/_components/index.ts",
 					// pattern: `/* PLOP_INJECT_EXPORT */`,
 					template: `export { {{pascalCase name}} } from './{{pascalCase name}}';`,
 				},
@@ -45,12 +45,12 @@ export default function (
 			if (data.wantTestFile) {
 				actions.push({
 					type: "add",
-					path: "src/app/_components/{{pascalCase name}}/{{pascalCase name}}.test.tsx",
+					path: "app/_components/{{pascalCase name}}/{{pascalCase name}}.test.tsx",
 					templateFile: "plop-templates/Component/test.hbs",
 				});
 				actions.push({
 					type: "add",
-					path: "src/app/_components/{{pascalCase name}}/{{pascalCase name}}.test-ids.ts",
+					path: "app/_components/{{pascalCase name}}/{{pascalCase name}}.test-ids.ts",
 					templateFile: "plop-templates/Component/test-ids.hbs",
 				});
 			}

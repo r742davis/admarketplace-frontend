@@ -21,30 +21,17 @@ const nextConfig = {
 			transform: "@/hooks/{{member}}",
 			skipDefaultConversion: true,
 		},
-		"@/lib/api": {
-			transform: "@/lib/api/{{member}}",
-			skipDefaultConversion: true,
-		},
-		"@/lib/utils": {
-			transform: "@/lib/utils/{{member}}",
-			skipDefaultConversion: true,
-		},
 	},
 	productionBrowserSourceMaps: true,
 	reactStrictMode: true,
 	swcMinify: true,
-	webpack: config => {
+	transpilePackages: ["@richie/components"],
+	webpack: (config) => {
 		config.resolve.alias = {
 			...config.resolve.alias,
-			"@/components": resolve("./src/app/_components"),
-			"@/components/layout": resolve("./src/app/_components/_layout"),
-			"@/hooks": resolve("./src/app/_hooks"),
-			"@/lib/api": resolve("./src/app/_lib/api"),
-			"@/lib/constants": resolve("./src/app/_lib/constants"),
-			"@/lib/utils": resolve("./src/app/_lib/utils"),
-			"@/providers": resolve("./src/app/_providers"),
-			"@/styles": resolve("./src/app/_styles"),
-			"@/types": resolve("./src/app/_types"),
+			"@/providers": resolve("./app/_providers"),
+			"@/styles": resolve("./app/_styles"),
+			"@/types": resolve("./app/_types"),
 		};
 
 		return config;

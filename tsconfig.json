@@ -1,44 +1,71 @@
 {
-	"compilerOptions": {
-		"lib": ["dom", "dom.iterable", "esnext"],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"strict": true,
-		"noEmit": true,
-		"esModuleInterop": true,
-		"module": "esnext",
-		"moduleResolution": "Node10",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"jsx": "preserve",
-		"incremental": true,
-		"plugins": [
-			{
-				"name": "next"
-			}
-		],
-		"baseUrl": "./",
-		"paths": {
-			"@/components": ["src/app/_components"],
-			"@/components/layout": ["src/app/_components/_layout"],
-			"@/hooks": ["src/app/_hooks"],
-			"@/lib/api": ["src/app/_lib/api"],
-			"@/lib/constants": ["src/app/_lib/constants"],
-			"@/lib/utils": ["src/app/_lib/utils"],
-			"@/providers": ["src/app/_providers"],
-			"@/styles": ["src/app/_styles"],
-			"@/types": ["src/app/_types"]
-		}
-	},
-	"include": [
-		"next-env.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
-		".next/types/**/*.ts",
-		"build/types/**/*.ts",
-		"./next.config.mjs",
-		"./src/**/*",
-		"plopFile.mjs"
-	],
-	"exclude": ["node_modules"]
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "noEmit": false,
+    "outDir": "./build",
+    "skipLibCheck": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "Node10",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@richie/components": [
+        "packages/components/src/index.ts"
+      ],
+      "@richie/components/*": [
+        "packages/components/src/*"
+      ],
+      "@richie/lib": [
+        "packages/lib/src"
+      ],
+      "@richie/lib/*": [
+        "packages/lib/src/*"
+      ],
+      "@/hooks": [
+        "packages/components/src/hooks"
+      ],
+      "@/providers": [
+        "app/_providers"
+      ],
+      "@/styles": [
+        "app/_styles"
+      ],
+      "@/types/*": [
+        "app/_types/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "build/types/**/*.ts",
+    "./next.config.mjs",
+    "./app/**/*",
+    "packages/*/src/**/*",
+    "plopFile.mjs"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+    "next.config.mjs",
+    "plopFile.mjs"
+  ]
 }

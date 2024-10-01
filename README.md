@@ -103,7 +103,7 @@ admarketplace-frontend/app/src
 
 ## Development Practices
 
--   **Aliased Imports:** Use folder import aliases (e.g., `@/components`) for better readability and consistency across the project.
+-   **Aliased Imports:** Use folder import aliases (e.g., `@richie/components`) for better readability and consistency across the project.
 -   **Commit Hooks:** The project uses Husky to run pre-commit hooks, ensuring code quality before each commit.
 -   **ESLint:** Linting is configured to enforce coding standards. Please make sure your code passes linting before pushing.
 
